@@ -11,10 +11,15 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 """
 
 from pathlib import Path
+from dotenv import load_dotenv
+
+
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
+# Get variables from local .env file. Default path: root-directory/.env.
+load_dotenv()
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
@@ -37,7 +42,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    # Refers to object in ./../matters/apps.py
+    # Refers to object BASE_DIR / matters/apps.py
     'matters.apps.MattersConfig',
 ]
 
@@ -77,13 +82,13 @@ WSGI_APPLICATION = 'the_acce.wsgi.application'
 
 DATABASES = {
     'default': {
-        # Custom postgres database
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'theacce',
-        'USER': '',
-        'PASSWORD': '',
-        'HOST': '',
-        'PORT': '5432',
+        # Custom database value taken from BASE_DIR / .env
+        'ENGINE': os.getenv("DB_ENGINE"),
+        'NAME': os.getenv("DB_NAME"),
+        'USER': os.getenv("DB_USER"),
+        'PASSWORD': '', # No password set
+        'HOST': '', # Localhost / 127.0.0.1
+        'PORT': os.getenv("DB_PORT"),
     }
 }
 
