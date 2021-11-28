@@ -77,8 +77,13 @@ WSGI_APPLICATION = 'the_acce.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        # Custom postgres database
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'theacce',
+        'USER': '',
+        'PASSWORD': '',
+        'HOST': '',
+        'PORT': '5432',
     }
 }
 
