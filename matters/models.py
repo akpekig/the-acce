@@ -74,6 +74,27 @@ class Matter(models.Model):
                 raise ValidationError('You can not have started without your client\'s permission. '
                                     'Any work done without permission can not be logged nor charged!')
 
+class Pretask(models.Model):
+    """Model representing pre-tasks that client must complete."""
+    key = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
+    title = models.CharField(max_length=32)
+    description = models.CharField(max_length=256)
+    is_complete = models.BooleanField(default=False)
+    is_active = models.BooleanField(default=True)
+    matter_key = models.ForeignKey(
+        'Matter',
+        related_name='pretask',
+        related_query_name='pretasks',
+        on_delete=models.CASCADE
+    )
+
+    def __str__(self):
+        """Returns human-readable reference to model instance."""
+        return self.title
+
+    def get_absolute_url(self):
+        """Returns the url to access a particular instance of the model."""
+        return reverse('pretasks/view', args=[str(self.key)])
 class Lawyer(models.Model):
     pass
 class Client(models.Model):
