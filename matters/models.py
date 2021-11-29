@@ -74,6 +74,44 @@ class Matter(models.Model):
                 raise ValidationError('You can not have started without your client\'s permission. '
                                     'Any work done without permission can not be logged nor charged!')
 
+class Contact(models.Model):
+    """Model representing external services."""
+    key = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
+    first_name = models.CharField(max_length=32)
+    last_name = models.CharField(max_length=32)
+    company = models.CharField(max_length=64, blank=True, null=True)
+    email = models.EmailField(blank=True, null=True)
+    phone = models.CharField(max_length=64, blank=True, null=True)
+    website = models.CharField(max_length=128, blank=True, null=True)
+    address = models.ForeignKey(
+        'Location',
+        models.SET_NULL,
+        blank=True,
+        null=True,
+    )
+    matter_key = models.ManyToManyField(
+        'Matter',
+        related_name='external_contact',
+        related_query_name='external_contacts'
+    )
+
+    def __str__(self):
+        """Returns human-readable reference to model instance."""
+        if self.company:
+            return f'{self.first_name} {self.last_name} from {self.company}'
+        else:
+            return f'{self.first_name} {self.last_name}'
+
+    def get_absolute_url(self):
+        """Returns the url to access a particular instance of the model."""
+        return reverse('contacts/view', args=[str(self.key)])
+    
+    def clean(self):
+        """Validates various fields of this model."""
+        if not (self.email and self.phone and self.website and self.address):
+            # Don't allow already due matters.
+            raise ValidationError('The client needs to know how to contact the external service!')
+
 class Pretask(models.Model):
     """Model representing pre-tasks that client must complete."""
     key = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
@@ -95,6 +133,10 @@ class Pretask(models.Model):
     def get_absolute_url(self):
         """Returns the url to access a particular instance of the model."""
         return reverse('pretasks/view', args=[str(self.key)])
+    
+class Location(models.Model):
+    pass
+
 class Lawyer(models.Model):
     pass
 class Client(models.Model):
