@@ -50,3 +50,18 @@ class Account(models.Model):
 class Location(models.Model):
     pass
 
+class Client(models.Model):
+    """Model if user is registered as a client. May convert to boolean field."""
+    account = models.OneToOneField(
+        Account,
+        on_delete=models.CASCADE,
+        primary_key=True,
+    )
+
+class Lawyer(models.Model):
+    """Model if user is registered as a legal service. May convert to boolean field."""
+    account = models.OneToOneField(
+        Account,
+        on_delete=models.CASCADE,
+        primary_key=True,
+    )
