@@ -1,13 +1,15 @@
 import uuid
 
-from django.core.exceptions import ValidationError
 from django.contrib.auth.models import User
-from django.utils.translation import gettext_lazy as _
+from django.core.exceptions import ValidationError
 from django.db import models
 from django.urls import reverse
+from django.utils.translation import gettext_lazy as _
+
 
 class Account(models.Model):
     """Model extending built-in abstract class of User model."""
+
     # Types of costs that the lawyer may charge.
     class UserTypes(models.IntegerChoices):
         LAWYER = 1, _("As a legal service")
@@ -47,19 +49,24 @@ class Account(models.Model):
                 "You need to have a way to be contacted in order to use this site!"
             )
 
+
 class Location(models.Model):
     pass
 
+
 class Client(models.Model):
     """Model if user is registered as a client. May convert to boolean field."""
+
     account = models.OneToOneField(
         Account,
         on_delete=models.CASCADE,
         primary_key=True,
     )
 
+
 class Lawyer(models.Model):
     """Model if user is registered as a legal service. May convert to boolean field."""
+
     account = models.OneToOneField(
         Account,
         on_delete=models.CASCADE,
