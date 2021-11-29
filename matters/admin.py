@@ -1,5 +1,7 @@
 from django.contrib import admin
-from .models import Matter, Contact, Pretask, Location, Lawyer, Client
+
+from .models import Client, Contact, Lawyer, Location, Matter, Pretask
+
 admin.site.register(Matter)
 admin.site.register(Contact)
 admin.site.register(Pretask)
