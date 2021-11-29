@@ -24,4 +24,6 @@ urlpatterns = [
     path("admin/", admin.site.urls),
     # Refers to object BASE_DIR / matters/urls.py
     path("matters/", include("matters.urls")),
+    # Refers to object BASE_DIR / accounts/urls.py
+    path("accounts/", include("accounts.urls")),
 ]
