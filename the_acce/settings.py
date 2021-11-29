@@ -44,6 +44,8 @@ INSTALLED_APPS = [
     "django.contrib.staticfiles",
     # Refers to object BASE_DIR / matters/apps.py
     "matters.apps.MattersConfig",
+    # Refers to object BASE_DIR / accounts/apps.py
+    "accounts.apps.AccountsConfig",
 ]
 
 MIDDLEWARE = [
