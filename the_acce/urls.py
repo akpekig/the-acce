@@ -26,4 +26,6 @@ urlpatterns = [
     path("matters/", include("matters.urls")),
     # Refers to object BASE_DIR / accounts/urls.py
     path("accounts/", include("accounts.urls")),
+    # Refers to object BASE_DIR / negotiations/urls.py
+    path("negotiations/", include("negotiations.urls")),
 ]

@@ -46,6 +46,8 @@ INSTALLED_APPS = [
     "matters.apps.MattersConfig",
     # Refers to object BASE_DIR / accounts/apps.py
     "accounts.apps.AccountsConfig",
+    # Refers to object BASE_DIR / negotiations/apps.py
+    "negotiations.apps.NegotiationsConfig",
 ]
 
 MIDDLEWARE = [
