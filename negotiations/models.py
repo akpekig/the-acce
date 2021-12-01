@@ -38,14 +38,21 @@ class Negotiation(models.Model):
         decimal_places=2,
         validators=POSITIVE_DECIMAL_VALIDATORS,
         default=0,
-        help_text="Include the base rate for hiring you.",
+        help_text="Include the base cost for hiring you.",
     )
     initial_amount = models.DecimalField(
         max_digits=6,
         decimal_places=2,
         validators=POSITIVE_DECIMAL_VALIDATORS,
         default=0,
-        help_text="How much of the base rate must be paid before you begin work?.",
+        help_text="How much of the base cost must be paid before you begin work?.",
+    )
+    budget = models.DecimalField(
+        max_digits=6,
+        decimal_places=2,
+        validators=POSITIVE_DECIMAL_VALIDATORS,
+        default=100,
+        help_text="Set the limit for spending on the base cost.",
     )
     is_accepted = models.BooleanField(
         "Do you want to accept the offer?", default=False

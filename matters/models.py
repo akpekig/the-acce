@@ -43,6 +43,13 @@ class Matter(models.Model):
         default=0,
         help_text="Include all costs related to the matter.",
     )
+    budget = models.DecimalField(
+        max_digits=6,
+        decimal_places=2,
+        validators=POSITIVE_DECIMAL_VALIDATORS,
+        default=100,
+        help_text="Set the limit for spending on this matter.",
+    )
     estimated_hours = models.DecimalField(
         max_digits=6,
         decimal_places=2,
