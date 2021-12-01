@@ -24,6 +24,9 @@ class Negotiation(models.Model):
         RATE = "R", _("Rate")
 
     key = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
+    title = models.CharField(
+        max_length=64, help_text="Enter a short, memorable title."
+    )
     cost_type = models.CharField(
         max_length=1,
         choices=CostTypes.choices,
