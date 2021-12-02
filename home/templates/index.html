@@ -12,7 +12,7 @@
         <link rel="stylesheet" type="text/css" href="{% static 'home/style.css' %}">
     </head>
     <body>
-        <div class="d-flex col-sm row justify-content-center align-items-center" id="homePageContent">
+        <div class="d-flex col-sm row justify-content-center align-items-center page-header" id="root">
             {% block header %}{% include "home/banner.html" %}{% endblock %}
             {% block sidebar %}{% include "home/navigation.html" %}{% endblock %}
         </div>

@@ -1,16 +1,16 @@
 /* Banner styles */
-#pageHeader {
+.page-header {
   /* Set inside space */
   padding: 100px 0px;
 }
-#pageHeader h1, #pageHeader p {
+.page-header h1, .page-header p {
   width: 50%;
 }
-#pageHeader h1 {
+.page-header h1 {
   text-transform: lowercase;
   font-size: 7.5em;
 }
-#pageHeader p {
+.page-header p {
   text-align: center;
 }
 
