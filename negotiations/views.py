@@ -5,5 +5,5 @@ from django.views import generic
 def index(request):
     return render(
         request,
-        "index.html",
+        "negotiations_overview.html",
     )

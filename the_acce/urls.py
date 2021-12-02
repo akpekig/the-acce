@@ -19,13 +19,16 @@ from django.views import debug
 
 urlpatterns = [
     # Default Django project homepage
-    path("", debug.default_urlconf),
+    path("debug/", debug.default_urlconf),
     # Django admin site
     path("admin/", admin.site.urls),
+    # Refers to object BASE_DIR / home/urls.py
+    path('', include("home.urls")),
+    path('home/', include("home.urls")),
     # Refers to object BASE_DIR / matters/urls.py
-    path("matters/", include("matters.urls")),
+    path('matters/', include("matters.urls")),
     # Refers to object BASE_DIR / accounts/urls.py
-    path("accounts/", include("accounts.urls")),
+    path('accounts/', include("accounts.urls")),
     # Refers to object BASE_DIR / negotiations/urls.py
-    path("negotiations/", include("negotiations.urls")),
+    path('negotiations/', include("negotiations.urls")),
 ]
