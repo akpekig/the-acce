@@ -1,0 +1,89 @@
+/* Import 'Playfair Display', 'Raleway' and 'Comorant Garamond' from Google Fonts. */
+@import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,700;1,300;1,700&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700;1,900&family=Raleway:ital,wght@0,300;0,700;1,300;1,700&display=swap");
+/* Color variables */
+/* Element ID to contain all children. Alternative to body inspired by React to avoid bugs. */
+body {
+  margin: 0 !important;
+}
+
+/* Serif header style */
+h1.serif {
+  font-family: "Cormorant Garamond", serif;
+}
+h1.serif a {
+  text-decoration: none;
+}
+h1.serif .thick-italic {
+  font-style: italic;
+  font-weight: 700;
+}
+
+/* Banner style */
+#siteHeader h1 {
+  font-size: 4em;
+}
+
+#root {
+  /* Light background, dark text */
+  background-color: #F5F5EF;
+  color: #352A2A;
+  /* Fit all pages within container */
+  width: 100vw;
+  height: 100vh;
+  overflow-x: hidden;
+  /* Set inside space */
+  padding: 50px 200px;
+  /* Set root font family*/
+  font-family: "Raleway", sans-serif;
+  /* Set root font size */
+  font-size: 20px;
+  /* Set root letter spacing and height */
+  letter-spacing: 0.06ch;
+  line-height: 200%;
+  /* Link + link hover color reset */
+  /* Smaller text alternative */
+  /* Navigation bar style */
+}
+#root a {
+  color: inherit;
+}
+#root .small-text {
+  font-size: small;
+  line-height: 1.5;
+}
+#root nav#wrapper {
+  display: block;
+  width: 512px;
+  margin: 0 auto !important;
+  padding: 0 !important;
+  border-left: 5px solid #352A2A;
+  border-bottom: 5px solid #352A2A;
+}
+#root ul#navigation {
+  width: 100%;
+  height: 100%;
+  padding: 0 !important;
+  margin: 0 !important;
+  list-style: none;
+}
+#root ul#navigation header, #root ul#navigation li {
+  text-transform: lowercase;
+  height: 100%;
+}
+#root ul#navigation header {
+  margin: 0.375em 1em;
+}
+#root ul#navigation li:hover, #root ul#navigation li:focus-within, #root ul#navigation li:active {
+  /* Light background, dark text */
+  background-color: #352A2A;
+  color: #F5F5EF;
+}
+#root ul#navigation li button {
+  text-transform: inherit;
+  /* Reset default button coding */
+  border: none;
+  background-color: transparent;
+  color: inherit;
+}
+
+/*# sourceMappingURL=style.css.map */

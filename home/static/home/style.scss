@@ -1,0 +1,15 @@
+/* Banner styles */
+#pageHeader {
+    /* Set inside space */
+    padding: 100px 0px;
+    h1, p {
+        width: 50%;
+    }
+    h1 {
+        text-transform: lowercase;
+        font-size: 7.5em;
+    }
+    p {
+        text-align: center;
+    }
+}
