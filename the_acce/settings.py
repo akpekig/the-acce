@@ -42,6 +42,8 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
+    # Refers to object BASE_DIR / home/apps.py
+    "home.apps.HomeConfig",
     # Refers to object BASE_DIR / matters/apps.py
     "matters.apps.MattersConfig",
     # Refers to object BASE_DIR / accounts/apps.py
