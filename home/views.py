@@ -7,3 +7,9 @@ def index(request):
         request,
         "index.html",
     )
+
+def template_test(request):
+    return render(
+        request,
+        "test.html",
+    )
