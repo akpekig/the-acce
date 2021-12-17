@@ -1,7 +1,7 @@
-
-![The Agile Client Care Experience Logo](./home/static/home/logo.png)
+<img src="https://raw.githubusercontent.com/akpekig/the-acce/main/home/static/home/logo.png" alt="The Agile Client Care Experience Logo" width="180">
 
 # The Agile Client Care Experience
+
 A web application for financial transparency between legal services and their (potential) clients.
 ## Developed by
 
