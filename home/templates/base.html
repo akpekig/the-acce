@@ -18,5 +18,19 @@
             {% block sidebar %}{% include "home/navigation.html" %}{% endblock %}
             {% block content %}<!-- Content from other pages. -->{% endblock %}
         </div>
+        <!-- Asset Fallback -->
+        <script id="fallback" type="text/javascript">
+            const collection = document.querySelectorAll("*");
+            [...collection].map((element) => {
+                const fallback = element.dataset.fallback;
+                const src = element.src;
+                if (fallback && src != fallback) {
+                    element.onerror = () => {
+                        element.onerror = null;
+                        element.src = fallback;
+                    };
+                }
+            });
+        </script>
     </body>
 </html>

@@ -1,0 +1,8 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+<div class="d-block mt-5 mx-auto text-center w-50">
+    <img src="https://assets.the-acce.tech/home/ui/stop.png" fallback="{% static 'home/ui/stop.png' %}" width="360">
+    <p>You don't have permission to view the current page.</p>
+</div>
+{% endblock %}

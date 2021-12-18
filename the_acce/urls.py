@@ -17,6 +17,12 @@ from django.contrib import admin
 from django.urls import include, path
 from django.views import debug
 
+
+handler404 = 'home.views.error_404'
+handler500 = 'home.views.error_500'
+handler403 = 'home.views.error_403'
+handler400 = 'home.views.error_400'
+
 urlpatterns = [
     # Default Django project homepage
     path("debug/", debug.default_urlconf),
